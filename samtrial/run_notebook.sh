@@ -11,7 +11,6 @@
 #BSUB -e batch_output/notebook_%J.err
 #BSUB -B
 #BSUB -N
-#BSUB -u s203971@student.dtu.dk
 
 mkdir -p batch_output
 
