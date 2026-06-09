@@ -55,9 +55,9 @@ The results for "aarhus" were run in the same manner, by swapping out any "nordv
 ## Directory
 poly/"area".gpkg, input LiDAR building model <br>
 images/"area"/, output of stage 0 containing downloaded and coverted JPGS <br>
-cams/"area", output of stage 0 containing per-image camera metdata JSON <br>
-stats/"area", output of stage 1 containg sunlit CIELAB statistics in an .npz <br>
-comp/"area", output of stage 2 (re-stamped in stage 3) containing shadow-compensated JPGs <br>
+cams/"area"/, output of stage 0 containing per-image camera metdata JSON <br>
+stats/"area"/, output of stage 1 containg sunlit CIELAB statistics in an .npz <br>
+comp/"area"/, output of stage 2 (re-stamped in stage 3) containing shadow-compensated JPGs <br>
 Failure logs and stage logs are written to the working directory, and batch-ouputs are written to batch_output.
 
 ## Parameters
