@@ -39,25 +39,25 @@ Needs LiDAR-derived building geometry, as "poly/<area>.gpkg". The GeoPackage mus
 The remaining data including images and camera metadata are downloaded from the Danish Skråfotos API when DEFAULT_TOKEN is specified in fetch.py.
 
 ## Usage
-Run the stages in order, passing the area name matching the GeoPackage of interest (matching "poly/<area>.gpkg"): \\
-python 0_download.py <area> \\
-python 1_buildingstats.py <area> \\
-python 2_compensate.py <area> \\
-python 3_stamp.py <area> \\
+Run the stages in order, passing the area name matching the GeoPackage of interest (matching "poly/<area>.gpkg"):
+python 0_download.py <area> <br>
+python 1_buildingstats.py <area> <br>
+python 2_compensate.py <area> <br>
+python 3_stamp.py <area> <br>
 
-For the results in the thesis, the pipeline was run on DTU's HPC for the area "nordvest" with \\
-bsub < run_download.sh \\
-bsub < run_buildingstats.sh \\
-bsub < run_compensate.sh \\
-bsub < run_stamp.sh \\
+For the results in the thesis, the pipeline was run on DTU's HPC for the area "nordvest" with <br>
+bsub < run_download.sh <br>
+bsub < run_buildingstats.sh <br>
+bsub < run_compensate.sh <br>
+bsub < run_stamp.sh <br>
 The results for "aarhus" were run in the same manner, by swapping out any "nordvest" in the bash scripts by "aarhus".
 
 ## Directory
-poly/<area>.gpkg, input LiDAR building model \\
-images/<area>/, output of stage 0 containing downloaded and coverted JPGs \\
-cams/<area>, output of stage 0 containing per-image camera metdata JSON \\
-stats/<area>, output of stage 1 containg sunlit CIELAB statistics in an .npz \\
-comp/<area>, output of stage 2 (re-stamped in stage 3) containing shadow-compensated JPGs \\
+poly/<area>.gpkg, input LiDAR building model <br>
+images/<area>/, output of stage 0 containing downloaded and coverted JPGS <br>
+cams/<area>, output of stage 0 containing per-image camera metdata JSON <br>
+stats/<area>, output of stage 1 containg sunlit CIELAB statistics in an .npz <br>
+comp/<area>, output of stage 2 (re-stamped in stage 3) containing shadow-compensated JPGs <br>
 Failure logs and stage logs are written to the working directory, and batch-ouputs are written to batch_output.
 
 ## Parameters
