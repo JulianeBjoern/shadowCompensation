@@ -32,18 +32,18 @@ ImageMagick and ExifTool must be available as command-line tools for stage 0. an
 Access to the Skråfotos API requires a token from Datafordeler, which is not provided here. Obtain a token from Datafordeler and set DEFAULT_TOKEN in fetch.py
 
 ### Input data
-Needs LiDAR-derived building geometry, as "poly/<area>.gpkg". The GeoPackage must contain 3D (Polygon Z) geometries with the following attributes:
+Needs LiDAR-derived building geometry, as "poly/<\area>\.gpkg". The GeoPackage must contain 3D (Polygon Z) geometries with the following attributes:
 - building_id: unique identifier shared by all polygons of one building.
 - type: "Wall" and "Roof" are used in this pipeline.
 
 The remaining data including images and camera metadata are downloaded from the Danish Skråfotos API when DEFAULT_TOKEN is specified in fetch.py.
 
 ## Usage
-Run the stages in order, passing the area name matching the GeoPackage of interest (matching "poly/<area>.gpkg"):
-python 0_download.py <area> <br>
-python 1_buildingstats.py <area> <br>
-python 2_compensate.py <area> <br>
-python 3_stamp.py <area> <br>
+Run the stages in order, passing the area name matching the GeoPackage of interest (matching "poly/<\area>\.gpkg"):
+python 0_download.py <\area>\ <br>
+python 1_buildingstats.py <\area>\ <br>
+python 2_compensate.py <\area>\ <br>
+python 3_stamp.py <\area>\ <br>
 
 For the results in the thesis, the pipeline was run on DTU's HPC for the area "nordvest" with <br>
 bsub < run_download.sh <br>
@@ -53,11 +53,11 @@ bsub < run_stamp.sh <br>
 The results for "aarhus" were run in the same manner, by swapping out any "nordvest" in the bash scripts by "aarhus".
 
 ## Directory
-poly/<area>.gpkg, input LiDAR building model <br>
-images/<area>/, output of stage 0 containing downloaded and coverted JPGS <br>
-cams/<area>, output of stage 0 containing per-image camera metdata JSON <br>
-stats/<area>, output of stage 1 containg sunlit CIELAB statistics in an .npz <br>
-comp/<area>, output of stage 2 (re-stamped in stage 3) containing shadow-compensated JPGs <br>
+poly/<\area>\.gpkg, input LiDAR building model <br>
+images/<\area>\/, output of stage 0 containing downloaded and coverted JPGS <br>
+cams/<\area>\, output of stage 0 containing per-image camera metdata JSON <br>
+stats/<\area>\, output of stage 1 containg sunlit CIELAB statistics in an .npz <br>
+comp/<\area>\, output of stage 2 (re-stamped in stage 3) containing shadow-compensated JPGs <br>
 Failure logs and stage logs are written to the working directory, and batch-ouputs are written to batch_output.
 
 ## Parameters
